@@ -1,0 +1,7 @@
+
+---
+deployment:
+  tasks:
+    - export DEPLOYPATH=/home/frengkyp/public_html/
+    - /bin/cp -R * $DEPLOYPATH
+    
