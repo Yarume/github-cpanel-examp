@@ -1,7 +1,7 @@
 const express = require('express');
 const mongodb = require('mongodb');
-
 const router = express.Router();
+const axios = require('axios')
 
 //GETPOST
 router.get('/', async (req,res) => {
@@ -26,6 +26,15 @@ router.delete('/:id', async (req,res) => {
     res.status(200).send();
 })
 
+router.post('/testapi', async(req,res) =>{
+    axios.get('https://amalia.telkomakses.co.id/pdf/examples/amalia_for_digital_signatur.php?no_wo='+req.body.sc_id,
+{ maxContentLength: 63279 })
+    .then(result => {
+        res.json({ Status: req.body.sc_id+"| Badig ADA" });
+    }).catch(err => {
+        res.json({ Status: req.body.sc_id+"| Badig NOK" });
+    });
+})
 
 
 
