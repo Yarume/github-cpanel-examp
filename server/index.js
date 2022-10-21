@@ -7,9 +7,8 @@ const app = express();
 app.use(bodyParser.json());
 app.use(cors());
 
-const post = require('./routes/api/posts');
-
-app.use('/api/posts', post);
+const telkom = require('./routes/api/telkom');
+app.use('/api', telkom);
 
 //production
 
